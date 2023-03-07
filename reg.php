@@ -4,7 +4,8 @@ if (isset($_POST['reg'])) {
 	@$dob = $_POST['bday']."/".$_POST['bmonth']."/".$_POST['byear'];
 	$reg_rec = array('fname'=>$_POST['fname'],'lname'=>$_POST['lname'],'email'=>$_POST['email'],'pass'=>$_POST['pass'],'dob'=>$dob, 'gender'=>$_POST['gender'],'status'=>$_POST['status']);
 
-		$registered = Db::reg_user($reg_rec);
+		$Db = new Db;
+		$registered = $Db->reg_user($reg_rec);
 		if ($registered) {
 			echo "<script>alert('you are successfuly registered');</script>";
 			echo "<script>window.location.href = 'login.php';</script>";
